@@ -1,0 +1,181 @@
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: #111; //for the browsers that doesn't support linear gradient
+    background-image: linear-gradient(110deg, #111 67%, #222 0%);
+    overflow-y: hidden;
+    transform-style: preserve-3d;
+}
+
+
+
+ .main {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+    overflow: hidden;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: .5s;
+    background: url("../img/bg.jpg") no-repeat center center/ cover;
+        
+
+
+    .overlay {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(33, 33, 33, .7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        .inner {
+            max-width: 35rem;
+            height: 10rem;
+            text-align: center;
+            color: #fff;
+            padding: 0 2rem;
+            transform: translateY(30%);
+
+
+            .title {
+                font-size:2.5rem;
+                margin-bottom: 20px;
+                text-align: left;
+                padding-left: 18%;
+            }
+
+            p {
+                margin-bottom: 1.4rem;
+            }
+        }
+    }
+}
+
+
+
+
+//___________________________________//
+// when pressing the hamburger menu  //
+//___________________________________//
+    .container.active .links a {
+        
+        animation-name: appear ;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+
+        @keyframes appear {
+            0% {
+                transform: translateY(-150px);
+                opacity: 0;
+            }
+           
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+
+            }
+        }
+    }
+
+    .container.active .main {
+        transform: perspective(1300px) rotateY(20deg) scale(0.5) translateZ(310px);
+        box-shadow: -30px 5px 10px rgba($primary-color, 0.5) ;
+        border-radius: 20px;
+        cursor: pointer;
+        animation: threed-effect .5s;
+
+        @keyframes threed-effect {
+            from{
+                transform: translate(0);
+            }
+            to{
+                transform: perspective(1300px) rotateY(20deg) scale(0.5) translateZ(310px);
+            }
+            
+        }
+
+    }
+
+
+
+//* when hover over the main 
+.container.active .main:hover {
+    transform: perspective(1300px) rotateY(20deg) scale(0.5) translateZ(340px);
+}
+
+
+
+//* add a border to type writer effect
+.txt-type > .txt {
+    border-right: 0.2rem solid rgba($primary-color, 0.29);
+    color: $primary-color;
+}
+
+
+
+
+//_______________//
+// media queries //
+//_______________//
+@media screen and (max-width: 1000px) {
+
+    
+    .menu {
+        width: 90% !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .hamburger-menu {
+        margin-right: 2rem !important;
+    }
+    
+    .img {
+        transform: scale(0.7) translateX(-40px) !important;
+
+    }
+
+    .title {
+        font-size: 2rem !important ;
+    }
+
+    .shadow {
+        display: none;
+    }
+
+    
+
+    .container.active .main {
+        transform: perspective(1700px) rotateY(20deg) scale(0.4) translateZ(220px) !important;
+        animation: threed .5s !important;
+        cursor: pointer !important;
+
+
+        @keyframes threed {
+            from{
+                transform: translate(0) !important;
+            }
+            to{
+                transform: perspective(1700px) rotateY(20deg) scale(0.4) translateZ(220px) !important;
+            }
+            
+        }
+    }
+
+}
+
+
+@media screen and (max-width: 400px) {
+    .title {
+        padding-left: 12% !important;
+    }
+}
