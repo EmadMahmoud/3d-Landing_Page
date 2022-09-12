@@ -1,0 +1,18 @@
+.btn {
+    padding: .6rem 1.8rem;
+    text-decoration: none;
+    border: #fff solid 2px ;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background 0.3s;
+
+
+    &:hover , &:active {
+      border: $primary-color solid 2px ;
+      background-color: $primary-color;
+
+    }
+
+  }
